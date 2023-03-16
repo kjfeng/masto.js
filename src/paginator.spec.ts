@@ -23,6 +23,7 @@ describe('Paginator', () => {
       requestInit: { method: 'GET' },
       path: '/v1/api/timelines',
       searchParams: { foo: 'bar' },
+      useCustomBackend: false,
     });
   });
 
@@ -35,6 +36,7 @@ describe('Paginator', () => {
       requestInit: { method: 'GET' },
       path: '/v1/api/timelines',
       searchParams: { foo: 'bar' },
+      useCustomBackend: false,
     });
   });
 
@@ -51,6 +53,7 @@ describe('Paginator', () => {
       requestInit: { method: 'GET' },
       searchParams: { max_id: '109382006402042919' },
       path: '/api/v1/timelines/home',
+      useCustomBackend: false,
     });
   });
 
@@ -75,11 +78,13 @@ describe('Paginator', () => {
       requestInit: { method: 'GET' },
       searchParams: { query: 'value' },
       path: '/some/api',
+      useCustomBackend: false,
     });
     expect(http.request).nthCalledWith(2, {
       requestInit: { method: 'GET' },
       searchParams: { query: 'value' },
       path: '/some/api',
+      useCustomBackend: false,
     });
 
     expect(paginator1).not.toEqual(paginator2);
@@ -122,6 +127,7 @@ describe('Paginator', () => {
       path: '/api/v1/notifications',
       requestInit: { method: 'GET' },
       searchParams: { types: ['mention'], max_id: '123456' },
+      useCustomBackend: false,
     });
   });
 });
